@@ -12,9 +12,49 @@ WHEN the game is over
 THEN I can save my initials and my score 
 */
 
+// sample questions from mock
+var questions = [
+    {
+        question: "Commonly used data types DO NOT include:",
+        options: ["strings", "booleans", "alerts", "numbers"],
+        correct: "alerts"
+    },
+    {
+        question: "The condition in an if / else statement is enclosed within ____.",
+        options: ["quotes", "curly brackets", "parentheses", "square brackets"],
+        correct: "parentheses"
+    },
+    {
+        question: "Arrays in Javascript can be used to store ____.",
+        options: ["numbers and strings", "other arrays", "booleans", "all of the above"],
+        correct: "all of the above"
+    },
+    {
+        question: "String values must be enclosed within ____ when being assigned to variables.",
+        options: ["commas", "curly brackets", "quotes", "parenthesis"],
+        correct: "quotes"
+    },
+    {
+        question: "A very useful tool for used during development and debugging for printing content to the debugger is:",
+        options: ["Javascript", "terminal / bash", "for loops", "console log"],
+        correct: "console log"
+    },
+];
 
-// questions data with correct answer
-// startquiz
+let index = 0;
+
+// display questions on page
+function display(index){
+    //loop through all questions in questions array
+    for (var i = 0; i < questions.length; i++) {
+        var gameQuestions = questions[index].question;
+        var gameOptions = questions[index].options;
+    }
+    gameOptions.forEach(function(liItem) {
+        console.log(liItem);
+    })
+};
+
 
 // load first question
 // go to next question
