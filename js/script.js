@@ -44,6 +44,7 @@ var questions = [
 // html variables
 var quizDiv = document.querySelector("#quiz");
 var timerDiv = document.querySelector("#timer");
+var messageDiv = document.querySelector("#message");
 
 // create html elements
 var createUl = document.createElement("ul");
@@ -101,21 +102,25 @@ function checkContinue(event) {
     // condition li matches correct answer li
     if (element.matches("li")) {
         // create check message in html
-        var createDiv = document.createElement("div");
-        createDiv.setAttribute("id", "message");
+        // var createDiv = document.createElement("div");
+        // createDiv.setAttribute("id", "message");
         console.log(element.matches("li"));
    
         var gameAnswer = questions[index].correct;
         console.log(gameAnswer);
         // correct answer condition
-        // if (element.textContent === gameAnswer) { 
-        //     createDiv.textContent = "You got it right! The answer: " + gameAnswer;
-        //     console.log(element.textContent);
-        //     console.log(gameAnswer);
-        // } else {
-        //     // incorrect answer condition
-        //     createDiv.textContent = "Sorry, incorrect answer. The answer was: " + gameAnswer;
-        // }        
+        if (element.textContent === gameAnswer) { 
+            messageDiv.setAttribute("style", "display:block;");
+            messageDiv.setAttribute("class", "correct");
+            messageDiv.textContent = "You got it right!" + "\n The answer was: " + gameAnswer;
+            console.log(element.textContent);
+            console.log(gameAnswer);
+        } else {
+            // incorrect answer condition
+            messageDiv.setAttribute("style", "display:block;");
+            messageDiv.setAttribute("class", "incorrect");
+            messageDiv.textContent = "Sorry, incorrect answer.\n The answer was: " + gameAnswer;
+        }        
     }
     
     // go to next question
