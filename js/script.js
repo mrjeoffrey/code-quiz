@@ -41,36 +41,86 @@ var questions = [
     },
 ];
 
+// html variables
+var quizDiv = document.querySelector("#quiz");
+var timerDiv = document.querySelector("#timer");
+
+// create html elements
+var createUl = document.createElement("ul");
+
+
+//js variables
 let index = 0;
 
-// display questions on page
-function display(index){
+// build timer
+// start timer
+// end timer
+
+// display questions on page 
+function displayQuiz(index){
     // loop through all questions in questions array
     for (var i = 0; i < questions.length; i++) {
+        //declare game components
         var gameQuestions = questions[index].question;
         var gameOptions = questions[index].options;
-        console.log(gameQuestions);
+
+        // append question
+        quizDiv.textContent = gameQuestions;
+
+        // log question 
+        // console.log(gameQuestions);
     }
-    // log answers
-    gameOptions.forEach(function(liItem) {
-        console.log(liItem);
+    // creates list for question options
+    gameOptions.forEach(function(optionItem) {
+        // declare create listItem variable
+        var listItem = document.createElement("li");
+        //append options
+        listItem.textContent = optionItem;
+            // append ul > li to quizDiv
+            quizDiv.appendChild(createUl);
+            createUl.appendChild(listItem);
+
+        // user selects option - add event listener
+        listItem.addEventListener("click", (checkContinue));
+
+        // log answers
+        // console.log(optionItem);
     })
 };
 
-display(0);
-display(1);
-display(2);
-display(3);
-display(4);
+// initialize displayQuiz function - loads first question
+displayQuiz(index); 
+
+// create user selection checker function & continue
+function checkContinue(event) {
+    // target event
+    var element = event.target;
+    // declare answer variable
+    var gameCorrect = questions[index].correct;
+    // condition if true
+    if (element.matches("li")) {
+        // create check message in html
+        var createDiv = document.createElement("div");
+        createDiv.setAttribute("id", "message");
+    
+        // correct answer condition
+        if (element.textContent === gameCorrect) {
+            createDiv.textContent = "You got it right! The answer: " + gameCorrect;
+        } else {
+            // incorrect answer condition
+            createDiv.textContent = "Sorry, incorrect answer. The answer was: " + gameCorrect;
+        }        
+    }
+    // go to next question
+    index++;
+}
 
 
-// load first question
-// go to next question
+
 
 // incorrect answer, subtract 5 second penalty
 
-// start timer
-// end timer
+
 // show results
 // save initials
 // save score
