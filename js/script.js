@@ -45,15 +45,23 @@ let index = 0;
 
 // display questions on page
 function display(index){
-    //loop through all questions in questions array
+    // loop through all questions in questions array
     for (var i = 0; i < questions.length; i++) {
         var gameQuestions = questions[index].question;
         var gameOptions = questions[index].options;
+        console.log(gameQuestions);
     }
+    // log answers
     gameOptions.forEach(function(liItem) {
         console.log(liItem);
     })
 };
+
+display(0);
+display(1);
+display(2);
+display(3);
+display(4);
 
 
 // load first question
