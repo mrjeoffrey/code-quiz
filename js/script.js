@@ -103,20 +103,36 @@ function checkContinue(event) {
         // create check message in html
         var createDiv = document.createElement("div");
         createDiv.setAttribute("id", "message");
-        // console.log(questions);
+        console.log(element.matches("li"));
+   
         var gameAnswer = questions[index].correct;
         console.log(gameAnswer);
         // correct answer condition
-        if (element.textContent == gameAnswer) { 
-            createDiv.textContent = "You got it right! The answer: " + gameAnswer;
-        } else {
-            // incorrect answer condition
-            createDiv.textContent = "Sorry, incorrect answer. The answer was: " + gameAnswer;
-        }        
+        // if (element.textContent === gameAnswer) { 
+        //     createDiv.textContent = "You got it right! The answer: " + gameAnswer;
+        //     console.log(element.textContent);
+        //     console.log(gameAnswer);
+        // } else {
+        //     // incorrect answer condition
+        //     createDiv.textContent = "Sorry, incorrect answer. The answer was: " + gameAnswer;
+        // }        
     }
+    
     // go to next question
-    index++;
-    displayQuiz(index);
+    //index++;
+    //displayQuiz(index);
+
+    //Loop quiz questions for now
+    if (index <= questions.length-2) {
+        index++;
+        displayQuiz(index);
+        console.log(index);
+        console.log(questions.length-2);
+    } else {
+        index = 0;
+        displayQuiz(index);
+        console.log(index);
+    }
 }
 
 
