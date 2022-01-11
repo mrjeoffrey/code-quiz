@@ -38,7 +38,7 @@ var questions = [
         question: "A very useful tool for used during development and debugging for printing content to the debugger is:",
         options: ["Javascript", "terminal / bash", "for loops", "console log"],
         correct: "console log"
-    },
+    }
 ];
 
 // html variables
@@ -48,22 +48,26 @@ var timerDiv = document.querySelector("#timer");
 // create html elements
 var createUl = document.createElement("ul");
 
-
 //js variables
 let index = 0;
+
+
 
 // build timer
 // start timer
 // end timer
 
+// initialize displayQuiz function - loads first question
+displayQuiz(index); 
+
 // display questions on page 
 function displayQuiz(index){
+
     // loop through all questions in questions array
     for (var i = 0; i < questions.length; i++) {
         //declare game components
         var gameQuestions = questions[index].question;
         var gameOptions = questions[index].options;
-
         // append question
         quizDiv.textContent = gameQuestions;
 
@@ -86,29 +90,27 @@ function displayQuiz(index){
         // log answers
         // console.log(optionItem);
     })
-};
-
-// initialize displayQuiz function - loads first question
-displayQuiz(index); 
+}
 
 // create user selection checker function & continue
 function checkContinue(event) {
     // target event
     var element = event.target;
-    // declare answer variable
-    var gameCorrect = questions[index].correct;
-    // condition if true
+    
+    // condition li matches correct answer li
     if (element.matches("li")) {
         // create check message in html
         var createDiv = document.createElement("div");
         createDiv.setAttribute("id", "message");
-    
+
+        var gameAnswer = questions[index].correct;
+
         // correct answer condition
-        if (element.textContent === gameCorrect) {
-            createDiv.textContent = "You got it right! The answer: " + gameCorrect;
+        if (element.textContent == gameAnswer) { 
+            createDiv.textContent = "You got it right! The answer: " + gameAnswer;
         } else {
             // incorrect answer condition
-            createDiv.textContent = "Sorry, incorrect answer. The answer was: " + gameCorrect;
+            createDiv.textContent = "Sorry, incorrect answer. The answer was: " + gameAnswer;
         }        
     }
     // go to next question
