@@ -62,7 +62,8 @@ displayQuiz(index);
 
 // display questions on page 
 function displayQuiz(index){
-
+    quizDiv.innerHTML = "";
+    createUl.innerHTML ="";
     // loop through all questions in questions array
     for (var i = 0; i < questions.length; i++) {
         //declare game components
@@ -102,9 +103,9 @@ function checkContinue(event) {
         // create check message in html
         var createDiv = document.createElement("div");
         createDiv.setAttribute("id", "message");
-
+        // console.log(questions);
         var gameAnswer = questions[index].correct;
-
+        console.log(gameAnswer);
         // correct answer condition
         if (element.textContent == gameAnswer) { 
             createDiv.textContent = "You got it right! The answer: " + gameAnswer;
@@ -115,6 +116,7 @@ function checkContinue(event) {
     }
     // go to next question
     index++;
+    displayQuiz(index);
 }
 
 
