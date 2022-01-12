@@ -152,18 +152,13 @@ function checkContinue(event) {
     if (index >= questions.length) {
         
         // clear html
-        quizDiv.innerHTML = "";
-        createUl.innerHTML ="";
+        clear();
 
         // show score
         quizDiv.textContent = "Your Score: " + secondsLeft + " seconds!";
         //score message style
         quizDiv.setAttribute("style", "text-align:center;");
-        //clears this div
-        messageDiv.setAttribute("style", "display:none;");
-        // clear time
-        clearInterval(runningTime);
-        timerDiv.textContent = "Challenge over!";
+        end();
         
 
     } else {
@@ -171,7 +166,18 @@ function checkContinue(event) {
     }
 
     
+function clear() {
+    quizDiv.innerHTML ="";
+    createUl.innerHTML ="";
+};
 
+function end() {
+    //clears this div
+    messageDiv.setAttribute("style", "display:none;");
+    // clear time
+    clearInterval(runningTime);
+    timerDiv.textContent = "Challenge over!";
+};
 
     //
 
