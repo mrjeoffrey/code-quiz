@@ -46,13 +46,12 @@ var quizDiv = document.querySelector("#quiz");
 var timerDiv = document.querySelector("#timer");
 var messageDiv = document.querySelector("#message");
 
-// create html elements
+// create html elements variables
 var createUl = document.createElement("ul");
+var createH2 = document.createElement("h2");
 
 //js variables
 let index = 0;
-
-
 
 // build timer
 // start timer
@@ -70,8 +69,9 @@ function displayQuiz(index){
         //declare game components
         var gameQuestions = questions[index].question;
         var gameOptions = questions[index].options;
-        // append question
-        quizDiv.textContent = gameQuestions;
+        // append question in h2
+        quizDiv.appendChild(createH2);
+        createH2.textContent = gameQuestions;
 
         // log question 
         // console.log(gameQuestions);
