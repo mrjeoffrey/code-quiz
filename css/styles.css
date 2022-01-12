@@ -25,6 +25,15 @@ h2 {
     font-weight: 200;
 }
 
+p {
+    line-height: 20pt;;
+}
+
+#timer {
+    margin: 0 auto;
+    text-align:center;
+}
+
 #quiz {
     padding: 2rem;
     margin:1rem;
@@ -57,6 +66,24 @@ li:first-child {
 li:last-child {
     margin-bottom:0;
 }
+
+#startButton {
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 2px solid black;
+    border-radius:5px;
+    font-size: 16pt;
+    width:100%;
+    background-color:#fff;
+    
+}
+
+#startButton:hover {
+    border: 2px solid #384092 ;
+    background: linear-gradient(190deg, #e66465, #384092);
+    color: white;
+}
+
 
 #message {
     padding: 1.5rem 2rem;

@@ -45,20 +45,44 @@ var questions = [
 var quizDiv = document.querySelector("#quiz");
 var timerDiv = document.querySelector("#timer");
 var messageDiv = document.querySelector("#message");
+var startButton = document.querySelector("#startButton");
 
 // create html elements variables
 var createUl = document.createElement("ul");
 var createH2 = document.createElement("h2");
 
-//js variables
+// js variables
 let index = 0;
 
-// build timer
+// quiz variables
+var runningTime = 0; // duration of 60 seconds
+var secondsLeft = 60; // countdown max, change this to make shorter or longer
+var penalty = 15; // seconds to subtract if wrong
+
+
+// start button starts timer
+startButton.addEventListener("click", function () {
+
+    if (runningTime === 0) {
+        runningTime = setInterval(function () {
+            secondsLeft--;
+            timerDiv.textContent = "You have " + secondsLeft + " seconds left in this challenge.";
+
+            if (secondsLeft <= 0) {
+                clearInterval(runningTime);
+                timerDiv.textContent = "Challenge over!";
+                    }
+
+        }, 1000);
+    }   
+    displayQuiz(index);
+});
+
 // start timer
 // end timer
 
 // initialize displayQuiz function - loads first question
-displayQuiz(index); 
+// displayQuiz(index); 
 
 // display questions on page 
 function displayQuiz(index){
@@ -124,20 +148,24 @@ function checkContinue(event) {
     }
     
     // go to next question
-    //index++;
-    //displayQuiz(index);
+    index++;
+    displayQuiz(index);
+
+
+    //
+
 
     //Loop quiz questions for now
-    if (index <= questions.length-2) {
-        index++;
-        displayQuiz(index);
-        console.log(index);
-        console.log(questions.length-2);
-    } else {
-        index = 0;
-        displayQuiz(index);
-        console.log(index);
-    }
+    // if (index <= questions.length-2) {
+    //     index++;
+    //     displayQuiz(index);
+    //     console.log(index);
+    //     console.log(questions.length-2);
+    // } else {
+    //     index = 0;
+    //     displayQuiz(index);
+    //     console.log(index);
+    // }
 }
 
 
