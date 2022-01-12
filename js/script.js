@@ -59,7 +59,6 @@ var runningTime = 0; // duration of 60 seconds
 var secondsLeft = 60; // countdown max, change this to make shorter or longer
 var penalty = 15; // seconds to subtract if wrong
 
-
 // start button starts timer
 startButton.addEventListener("click", function () {
 
@@ -125,22 +124,22 @@ function checkContinue(event) {
     
     // condition li matches correct answer li
     if (element.matches("li")) {
-        // create check message in html
-        // var createDiv = document.createElement("div");
-        // createDiv.setAttribute("id", "message");
-        console.log(element.matches("li"));
+
+        // console.log(element.matches("li"));
    
         var gameAnswer = questions[index].correct;
-        console.log(gameAnswer);
+        // console.log(gameAnswer);
         // correct answer condition
         if (element.textContent === gameAnswer) { 
+            
             messageDiv.setAttribute("style", "display:block;");
             messageDiv.setAttribute("class", "correct");
             messageDiv.textContent = "You got it right!" + "\n The answer was: " + gameAnswer;
-            console.log(element.textContent);
-            console.log(gameAnswer);
+            // console.log(element.textContent);
+            // console.log(gameAnswer);
         } else {
             // incorrect answer condition
+            secondsLeft = secondsLeft - penalty; //15 second penalty
             messageDiv.setAttribute("style", "display:block;");
             messageDiv.setAttribute("class", "incorrect");
             messageDiv.textContent = "Sorry, incorrect answer.\n The answer was: " + gameAnswer;
@@ -149,7 +148,29 @@ function checkContinue(event) {
     
     // go to next question
     index++;
-    displayQuiz(index);
+    // end quiz
+    if (index >= questions.length) {
+        
+        // clear html
+        quizDiv.innerHTML = "";
+        createUl.innerHTML ="";
+
+        // show score
+        quizDiv.textContent = "Your Score: " + secondsLeft + " seconds!";
+        //score message style
+        quizDiv.setAttribute("style", "text-align:center;");
+        //clears this div
+        messageDiv.setAttribute("style", "display:none;");
+        // clear time
+        clearInterval(runningTime);
+        timerDiv.textContent = "Challenge over!";
+        
+
+    } else {
+        displayQuiz(index);
+    }
+
+    
 
 
     //
