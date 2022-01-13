@@ -126,16 +126,16 @@ function checkContinue(event) {
    
         var gameAnswer = questions[index].correct;
         // console.log(gameAnswer);
-        // correct answer condition
+        // CORRECT ANSWER BLOCK
         if (element.textContent === gameAnswer) { 
-            
+            score++; // increase score by 1
             messageDiv.setAttribute("style", "display:block;");
             messageDiv.setAttribute("class", "correct");
             messageDiv.textContent = "Nice job!" + "\n The answer was: " + gameAnswer;
             // console.log(element.textContent);
             // console.log(gameAnswer);
         } else {
-            // incorrect answer condition
+            // INCORRECT ANSWER BLOCK
             secondsLeft = secondsLeft - penalty; //15 second penalty
             messageDiv.setAttribute("style", "display:block;");
             messageDiv.setAttribute("class", "incorrect");
@@ -148,14 +148,8 @@ function checkContinue(event) {
     // end quiz conditions
     if (index >= questions.length) { // if no more questions, record score and game over
         
-        // clear html
-        clear();
-
-        // show score
-        quizDiv.textContent = "Your Score: " + secondsLeft + " seconds!";
-        //score message style
-        quizDiv.setAttribute("style", "text-align:center;");
-        end();
+        // call function scoreSummary
+        scoreSummary();
         
 
     } else { // continue showing questions
@@ -171,13 +165,34 @@ function clear() {
 // utility function: hide message div and clear timer
 function end() {
     // clears this div
-    messageDiv.setAttribute("style", "display:none;");
+    // messageDiv.setAttribute("style", "display:none;");
     // clear time
     clearInterval(runningTime);
     timerDiv.textContent = "Challenge over!";
 };
 
 // js to html practice
+
+// score summary
+function scoreSummary() {
+    // clear containers
+    quizDiv.innerHTML ="";
+    timerDiv.innerHTML ="";
+
+    // Change Title in HTML
+    var titleH1 = document.querySelector("h1");
+    titleH1.textContent = "Score Summary"
+
+    // show score
+    quizDiv.textContent = "Your Score: " + secondsLeft + " seconds!";
+        //score message style
+        quizDiv.setAttribute("style", "text-align:center;");
+        end();
+    messageDiv.textContent = "Quiz: " + score + "/" + questions.length; 
+        messageDiv.setAttribute("style", "color:#343434; text-align:center;");
+        // messageDiv.removeAttribute("style", "correct");
+
+}
 
     //
 
