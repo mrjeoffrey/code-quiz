@@ -58,6 +58,7 @@ let index = 0;
 var runningTime = 0; // duration of 60 seconds
 var secondsLeft = 60; // countdown max, change this to make shorter or longer
 var penalty = 15; // seconds to subtract if wrong
+var score = 0;
 
 // start button starts timer
 startButton.addEventListener("click", function () {
@@ -77,16 +78,12 @@ startButton.addEventListener("click", function () {
     displayQuiz(index);
 });
 
-// start timer
-// end timer
 
-// initialize displayQuiz function - loads first question
-// displayQuiz(index); 
-
-// display questions on page 
+// function to display questions on page 
 function displayQuiz(index){
+
     quizDiv.innerHTML = "";
-    createUl.innerHTML ="";
+    createUl.innerHTML = "";
     // loop through all questions in questions array
     for (var i = 0; i < questions.length; i++) {
         //declare game components
@@ -117,7 +114,7 @@ function displayQuiz(index){
     })
 }
 
-// create user selection checker function & continue
+// function to check users choice and match against array answer key. also continues
 function checkContinue(event) {
     // target event
     var element = event.target;
@@ -134,7 +131,7 @@ function checkContinue(event) {
             
             messageDiv.setAttribute("style", "display:block;");
             messageDiv.setAttribute("class", "correct");
-            messageDiv.textContent = "You got it right!" + "\n The answer was: " + gameAnswer;
+            messageDiv.textContent = "Nice job!" + "\n The answer was: " + gameAnswer;
             // console.log(element.textContent);
             // console.log(gameAnswer);
         } else {
@@ -142,14 +139,14 @@ function checkContinue(event) {
             secondsLeft = secondsLeft - penalty; //15 second penalty
             messageDiv.setAttribute("style", "display:block;");
             messageDiv.setAttribute("class", "incorrect");
-            messageDiv.textContent = "Sorry, incorrect answer.\n The answer was: " + gameAnswer;
+            messageDiv.textContent = "Minus " + penalty + " seconds. Incorrect answer. The answer was: " + gameAnswer;
         }        
     }
     
     // go to next question
     index++;
-    // end quiz
-    if (index >= questions.length) {
+    // end quiz conditions
+    if (index >= questions.length) { // if no more questions, record score and game over
         
         // clear html
         clear();
@@ -161,23 +158,26 @@ function checkContinue(event) {
         end();
         
 
-    } else {
+    } else { // continue showing questions
         displayQuiz(index);
     }
 
-    
+// utility functions: clear div — broken?    
 function clear() {
     quizDiv.innerHTML ="";
     createUl.innerHTML ="";
 };
 
+// utility function: hide message div and clear timer
 function end() {
-    //clears this div
+    // clears this div
     messageDiv.setAttribute("style", "display:none;");
     // clear time
     clearInterval(runningTime);
     timerDiv.textContent = "Challenge over!";
 };
+
+// js to html practice
 
     //
 
@@ -198,11 +198,7 @@ function end() {
 
 
 
-// incorrect answer, subtract 5 second penalty
-
-
 // show results
 // save initials
 // save score
-
-// show score
+// show high score
