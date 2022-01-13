@@ -46,10 +46,15 @@ var quizDiv = document.querySelector("#quiz");
 var timerDiv = document.querySelector("#timer");
 var messageDiv = document.querySelector("#message");
 var startButton = document.querySelector("#startButton");
+var submitButton = document.querySelector("#submitButton");
 
 // create html elements variables
 var createUl = document.createElement("ul");
 var createH2 = document.createElement("h2");
+var createP = document.createElement("p");
+var createLabel = document.createElement("label");
+var createInput = document.createElement("input");
+var createButton = document.createElement("button");
 
 // js variables
 let index = 0;
@@ -149,6 +154,7 @@ function checkContinue(event) {
     if (index >= questions.length) { // if no more questions, record score and game over
         
         // call function scoreSummary
+        clear();
         scoreSummary();
         
 
@@ -165,10 +171,9 @@ function clear() {
 // utility function: hide message div and clear timer
 function end() {
     // clears this div
-    // messageDiv.setAttribute("style", "display:none;");
+    
     // clear time
-    clearInterval(runningTime);
-    timerDiv.textContent = "Challenge over!";
+    
 };
 
 // js to html practice
@@ -176,8 +181,13 @@ function end() {
 // score summary
 function scoreSummary() {
     // clear containers
+    
     quizDiv.innerHTML ="";
     timerDiv.innerHTML ="";
+    clearInterval(runningTime);
+    timerDiv.textContent = "Challenge over!";
+    messageDiv.removeAttribute("style", "display:none;");
+    messageDiv.setAttribute("style", "display: block;text-align:center;color:#343434;");
 
     // Change Title in HTML
     var titleH1 = document.querySelector("h1");
@@ -186,12 +196,11 @@ function scoreSummary() {
     // show score
     quizDiv.textContent = "Your Score: " + secondsLeft + " seconds!";
         //score message style
-        quizDiv.setAttribute("style", "text-align:center;");
-        end();
+    quizDiv.setAttribute("style", "text-align:center;");
     messageDiv.textContent = "Quiz: " + score + "/" + questions.length; 
-        messageDiv.setAttribute("style", "color:#343434; text-align:center;");
+        
         // messageDiv.removeAttribute("style", "correct");
-
+        
 }
 
     //
