@@ -68,7 +68,7 @@ li:last-child {
     margin-bottom:0;
 }
 
-#startButton {
+#startButton, #submitButton {
     padding: 1rem;
     margin: .25rem 0 .5rem;
     border: 2px solid black;
@@ -79,7 +79,7 @@ li:last-child {
     
 }
 
-#startButton:hover {
+#startButton:hover, #submitButton:hover {
     border: 2px solid #384092 ;
     background: linear-gradient(190deg, #e66465, #384092);
     color: white;

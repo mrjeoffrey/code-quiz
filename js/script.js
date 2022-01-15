@@ -75,7 +75,10 @@ startButton.addEventListener("click", function () {
 
             if (secondsLeft <= 0) {
                 clearInterval(runningTime);
+                clear();
+                scoreSummary();
                 timerDiv.textContent = "Challenge over!";
+                
                     }
 
         }, 1000);
@@ -166,15 +169,8 @@ function checkContinue(event) {
 function clear() {
     quizDiv.innerHTML ="";
     createUl.innerHTML ="";
-};
+}
 
-// utility function: hide message div and clear timer
-function end() {
-    // clears this div
-    
-    // clear time
-    
-};
 
 // js to html practice
 
@@ -196,12 +192,17 @@ function scoreSummary() {
     // show score
     quizDiv.textContent = "Your Score: " + secondsLeft + " seconds!";
         //score message style
-    quizDiv.setAttribute("style", "text-align:center;");
-    messageDiv.textContent = "Quiz: " + score + "/" + questions.length; 
+        quizDiv.setAttribute("style", "text-align:center;");
+        messageDiv.textContent = "Quiz: " + score + "/" + questions.length + " questions answered correctly"; 
         
         // messageDiv.removeAttribute("style", "correct");
         
-}
+    // submit score
+    quizDiv.appendChild("createButton");
+        createButton.setAttribute("id", "submitButton");
+        submitButton.setAttribute("type", "submit");
+        submitButton.textContent = "Submit";
+};
 
     //
 
