@@ -53,6 +53,7 @@ var quizDiv = document.querySelector("#quiz");
 var timerDiv = document.querySelector("#timer");
 var messageDiv = document.querySelector("#message");
 var startButton = document.querySelector("#startButton");
+// var titleH1 = document.querySelector("h1");
 
 
 
@@ -171,12 +172,11 @@ function clear() {
 
 // PRACTICE MORE HTML
 
-// score summary
+// score summary - includes storing and submitting score
 function scoreSummary() {
 
     // declare html creation variables in scoreSummary function scope
     var createButton = document.createElement("button");
-    var createLabel = document.createElement("label");
     var createInput = document.createElement("input");
     var createP = document.createElement("p");
 
@@ -212,6 +212,7 @@ function scoreSummary() {
     
     // create inputfield
     quizDiv.appendChild(createInput);
+        createInput.setAttribute("type", "text");
         createInput.setAttribute("placeholder", "Initials");
 
 
@@ -226,11 +227,85 @@ function scoreSummary() {
         submitButton.setAttribute("type", "submit");
         submitButton.textContent = "Submit";
 
+    // save initials & score
+    submitButton.addEventListener("click", function () {
+        // grab initials value
+        var initials = createInput.value;
+        console.log(initials);
 
-        // show results
-// save initials
-// save score
+        // true condition for no value, show error
+        if (initials === "") {
+            quizDiv.appendChild(createP);
+            createP.setAttribute("class", "error");
+            createP.textContent = "Error. Type initials.";
+        } else { // submit to scoreboard
+            var highScore = {
+                initials: initials,
+                score: secondsLeft
+            };
+            console.log(highScore);
+
+        // call local storage for collectScores
+        var collectScores = localStorage.getItem("collectScores");
+
+            // if no scores, create an array
+            if (collectScores === null) {
+                collectScores = [];
+            } else { // turn array into object
+                collectScores = JSON.parse(collectScores);
+            } // otherwise push highScore to array collectScore
+            collectScores.push(highScore);
+
+            // stringify newScore
+            var newScore = JSON.stringify(collectScores);
+            // store into local storage
+            localStorage.setItem("collectScores", newScore);
+            showHighScores();
+        } 
+        
+    });
+
+}
+
 // show high score
+function showHighScores() {
+       
+        // test if showHighScores function works
+        console.log("showHighScores works");
+        // clear containers
+        quizDiv.innerHTML ="";
+        timerDiv.innerHTML ="";
+        messageDiv.setAttribute("style", "display:none;");
+
+        // redeclare list variable
+        var createUl = document.createElement("ul");
+
+        // change title
+        var titleH1 = document.querySelector("h1");
+        titleH1.textContent = "High Scores";
+
+        // create list
+        quizDiv.appendChild(createUl);
+
+        // retrieve local storage
+        var collectScores = localStorage.getItem("collectScores");
+            collectScores = JSON.parse(collectScores);
+
+           // if local storage not empty, create list in loop
+            if (collectScores !== null) {
+                for (var i = 0; i < collectScores.length; i++) {
+                    var createLi = document.createElement("li");
+                    createUl.appendChild(createLi);
+                    createLi.setAttribute("class", "highScore"); 
+                    createLi.textContent = collectScores[i].initials + " = " + collectScores[i].score;
+                    console.log("highscore completed");
+
+                }
+            }
+
+        // clear scores?
+        // try again button
+
 
 
 }

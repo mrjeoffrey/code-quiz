@@ -124,3 +124,26 @@ input {
 .correct {
     color: green;
 }
+
+.error {
+    color:darkred;
+    margin: .25rem;
+}
+
+.highScore {
+    border:0 solid #343434;
+    border-bottom: 2px solid lightgrey;
+    border-radius: 0;
+    padding-top:0;
+}
+
+.highScore:hover {
+    background: linear-gradient(0deg, #fcfcfc, #ffffff);
+    color: #731b8e;
+    border: 0 solid #384092;
+    border-bottom: 2px solid lightgrey;
+}
+
+.highScore:first-child {
+    margin-top: 0;
+}
