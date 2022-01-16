@@ -19,7 +19,7 @@ Open folder in VisualStudioCode and modify `index.html`
 
 ## Usage
 
-| ![devfolio desktop version 1.0](assets/screenshots/devfolio-desktop-v1.png)
+| ![codequiz desktop version 1.0](./reqs/Assets/code-quiz.gif)
 
 ## LIVE
 | DEPLOYMENT | URL | STATUS |
