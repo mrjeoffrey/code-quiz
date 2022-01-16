@@ -44,7 +44,7 @@ var questions = [
 // create html elements variables
 var createUl = document.createElement("ul");
 var createH2 = document.createElement("h2");
-var createP = document.createElement("p");
+
 
 
 
@@ -174,10 +174,11 @@ function clear() {
 // score summary
 function scoreSummary() {
 
-    // declare variables
+    // declare html creation variables in scoreSummary function scope
     var createButton = document.createElement("button");
     var createLabel = document.createElement("label");
     var createInput = document.createElement("input");
+    var createP = document.createElement("p");
 
     // clear containers
     quizDiv.innerHTML ="";
@@ -205,38 +206,38 @@ function scoreSummary() {
         // new quizDiv message styles
         quizDiv.setAttribute("style", "text-align:center;");
         
+    // create instruction for scoreboard
+    quizDiv.appendChild(createP);
+        createP.textContent = "Type your initials to submit score.";
+    
+    // create inputfield
+    quizDiv.appendChild(createInput);
+        createInput.setAttribute("placeholder", "Initials");
 
-    // submit score
+
+    // create submitScore button
     quizDiv.appendChild(createButton);
+        // give new button id
         createButton.setAttribute("id", "submitButton");
-
+        // assign new button to var
         var submitButton = document.querySelector("#submitButton");
 
+        // finalize button
         submitButton.setAttribute("type", "submit");
         submitButton.textContent = "Submit";
 
-}
 
-    //
-
-
-    //Loop quiz questions for now
-    // if (index <= questions.length-2) {
-    //     index++;
-    //     displayQuiz(index);
-    //     console.log(index);
-    //     console.log(questions.length-2);
-    // } else {
-    //     index = 0;
-    //     displayQuiz(index);
-    //     console.log(index);
-    // }
-}
-
-
-
-
-// show results
+        // show results
 // save initials
 // save score
 // show high score
+
+
+}
+
+    
+}
+
+
+
+

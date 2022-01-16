@@ -68,7 +68,17 @@ li:last-child {
     margin-bottom:0;
 }
 
-#startButton, #submitButton {
+input {
+    padding: 1rem;
+    margin: .25rem 0 .5rem;
+    border: 2px solid black;
+    border-radius:5px;
+    font-size: 16pt;
+    width:40%;
+    background-color:#fff;
+}
+
+#startButton {
     padding: 1rem;
     margin: .25rem 0 .5rem;
     border: 2px solid black;
@@ -76,13 +86,25 @@ li:last-child {
     font-size: 16pt;
     width:100%;
     background-color:#fff;
+}
+
+#submitButton {
+    padding: 1rem;
+    margin: .25rem 0 .5rem 1rem;
+    border: 2px solid black;
+    border-radius:5px;
+    font-size: 16pt;
+    width:40%;
+    background: linear-gradient(190deg, #e66465, #384092);
+    color: white;
     
 }
 
 #startButton:hover, #submitButton:hover {
     border: 2px solid #384092 ;
-    background: linear-gradient(190deg, #e66465, #384092);
+    background: linear-gradient(240deg, #e66465, #384092);
     color: white;
+    
 }
 
 
