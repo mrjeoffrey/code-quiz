@@ -1,38 +1,49 @@
 # code-quiz
 ## Description
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
-## Table of Contents (Optional)
-If your README is long, add a table of contents to make it easy for users to find what they need.
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
-## Installation
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+Code Quiz is an online JavaScript speed challenge. A player gets tests their understanding of JavaScript by going through the question, one wrong answer and you are penalized 15 seconds. Once a player completes the challenge, they can record their score and add to the high score table
+
+## Install
+To use this code quiz template, open `terminal` or `gitbash` and move to Desktop
+ 
+    cd desktop
+
+Create a new directory
+
+    mkdir code-quiz
+
+Clone this repo
+
+    git clone https://github.com/mrjeoffrey/code-quiz.git
+
+Open folder in VisualStudioCode and modify `index.html`
+
 ## Usage
-Provide instructions and examples for use. Include screenshots as needed.
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+
+| ![devfolio desktop version 1.0](assets/screenshots/devfolio-desktop-v1.png)
+
+## LIVE
+| DEPLOYMENT | URL | STATUS |
+| ---------- | --- | ------ |
+| Repository  | [github.com/mrjeoffrey/code-quiz](https://github.com/mrjeoffrey/code-quiz) |  ACTIVE 🟢   |
+| Published Page     | [mrjeoffrey.github.io/code-quiz](https://mrjeoffrey.github.io/code-quiz/) | ACTIVE 🟢  |
+
+
 ## Credits
-List your collaborators, if any, with links to their GitHub profiles.
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-If you followed tutorials, include links to those here as well.
-## License
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
----
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-## Badges
-![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-## Features
-If your project has a lot of features, list them here.
-## How to Contribute
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-## Tests
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+
+| Resources | Descriptions |
+| --------- | ------------ |
+| [MDN Linear Gradient](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient()) | The Basics to use CSS Linear Gradient |
+| [DaGreave's Special Character Table](https://www.degraeve.com/reference/specialcharacters.php) | Logo required `lessthan` and `greaterthan` in HTML code |
+| [CSS Subgrid Tutorial](https://dev.to/kenbellows/why-we-need-css-subgrid-53mh) | The best layout property in CSS Grid but is not supported in any browser except Firefox. Please bring awareness to `subgrid` property. |
+| [CSS Tricks: Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) | Great flexbox guide when you need to quickly figure out and troubleshoot a layout problem. |
+| Kevin Powell's CSS Grid Tutorials | These were the best to practice layout techniques. Kevin Powell published a couple comprehensive videos. [Learn CSS Grid the easy way](https://www.youtube.com/watch?v=rg7Fvvl3taU), [Grid Template Areas](https://www.youtube.com/watch?v=v5KzBPUEgGQ), [Flexbox & CSS Grid Behaviors](https://www.youtube.com/watch?v=s3wHkfMz8oE&list=PL4-IK0AVhVjPv5tfS82UF_iQgFp4Bl998&index=13) and many more. |
+
+## MIT License
+
+Copyright (c) 2022 Jeoffrey Batangan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
