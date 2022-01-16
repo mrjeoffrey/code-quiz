@@ -1,5 +1,5 @@
 # code-quiz
-## Description
+
 Code Quiz is an online JavaScript speed challenge. A player gets tests their understanding of JavaScript by going through the question, one wrong answer and you are penalized 15 seconds. Once a player completes the challenge, they can record their score and add to the high score table
 
 ## Install
@@ -19,7 +19,7 @@ Open folder in VisualStudioCode and modify `index.html`
 
 ## Usage
 
-| ![codequiz desktop version 1.0](./reqs/Assets/code-quiz.gif)
+![codequiz desktop version 1.0](./reqs/Assets/code-quiz.gif)
 
 ## LIVE
 | DEPLOYMENT | URL | STATUS |
