@@ -41,20 +41,20 @@ var questions = [
     }
 ];
 
+// create html elements variables
+var createUl = document.createElement("ul");
+var createH2 = document.createElement("h2");
+var createP = document.createElement("p");
+
+
+
 // html variables
 var quizDiv = document.querySelector("#quiz");
 var timerDiv = document.querySelector("#timer");
 var messageDiv = document.querySelector("#message");
 var startButton = document.querySelector("#startButton");
-var submitButton = document.querySelector("#submitButton");
 
-// create html elements variables
-var createUl = document.createElement("ul");
-var createH2 = document.createElement("h2");
-var createP = document.createElement("p");
-var createLabel = document.createElement("label");
-var createInput = document.createElement("input");
-var createButton = document.createElement("button");
+
 
 // js variables
 let index = 0;
@@ -75,10 +75,11 @@ startButton.addEventListener("click", function () {
 
             if (secondsLeft <= 0) {
                 clearInterval(runningTime);
-                clear();
-                scoreSummary();
+                // clear quizDiv
+                quizDiv.innerHTML ="";
+                createUl.innerHTML ="";
                 timerDiv.textContent = "Challenge over!";
-                
+                scoreSummary();
                     }
 
         }, 1000);
@@ -130,18 +131,15 @@ function checkContinue(event) {
     // condition li matches correct answer li
     if (element.matches("li")) {
 
-        // console.log(element.matches("li"));
-   
         var gameAnswer = questions[index].correct;
-        // console.log(gameAnswer);
+
         // CORRECT ANSWER BLOCK
         if (element.textContent === gameAnswer) { 
             score++; // increase score by 1
             messageDiv.setAttribute("style", "display:block;");
             messageDiv.setAttribute("class", "correct");
             messageDiv.textContent = "Nice job!" + "\n The answer was: " + gameAnswer;
-            // console.log(element.textContent);
-            // console.log(gameAnswer);
+
         } else {
             // INCORRECT ANSWER BLOCK
             secondsLeft = secondsLeft - penalty; //15 second penalty
@@ -171,38 +169,53 @@ function clear() {
     createUl.innerHTML ="";
 }
 
-
-// js to html practice
+// PRACTICE MORE HTML
 
 // score summary
 function scoreSummary() {
+
+    // declare variables
+    var createButton = document.createElement("button");
+    var createLabel = document.createElement("label");
+    var createInput = document.createElement("input");
+
     // clear containers
-    
     quizDiv.innerHTML ="";
     timerDiv.innerHTML ="";
+
+    // clear timer
     clearInterval(runningTime);
+
+    // change message to Challenge Over
     timerDiv.textContent = "Challenge over!";
+    
+    // show messageDiv 
     messageDiv.removeAttribute("style", "display:none;");
-    messageDiv.setAttribute("style", "display: block;text-align:center;color:#343434;");
+    // change messageDiv styles
+    messageDiv.setAttribute("style", "display:block;text-align:center;color:#343434;");
+    // messageDiv message
+    messageDiv.textContent = "Quiz: " + score + "/" + questions.length + " questions answered correctly"; 
 
-    // Change Title in HTML
+    // Change title in HTML
     var titleH1 = document.querySelector("h1");
-    titleH1.textContent = "Score Summary"
+    titleH1.textContent = "Score Summary";
 
-    // show score
+    // show Score in quizDiv
     quizDiv.textContent = "Your Score: " + secondsLeft + " seconds!";
-        //score message style
+        // new quizDiv message styles
         quizDiv.setAttribute("style", "text-align:center;");
-        messageDiv.textContent = "Quiz: " + score + "/" + questions.length + " questions answered correctly"; 
         
-        // messageDiv.removeAttribute("style", "correct");
-        
+
     // submit score
-    quizDiv.appendChild("createButton");
+    quizDiv.appendChild(createButton);
         createButton.setAttribute("id", "submitButton");
+
+        var submitButton = document.querySelector("#submitButton");
+
         submitButton.setAttribute("type", "submit");
         submitButton.textContent = "Submit";
-};
+
+}
 
     //
 
