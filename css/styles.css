@@ -78,7 +78,7 @@ input {
     background-color:#fff;
 }
 
-#startButton {
+#startButton, #retryButton, #clearButton {
     padding: 1rem;
     margin: .25rem 0 .5rem;
     border: 2px solid black;
@@ -100,7 +100,7 @@ input {
     
 }
 
-#startButton:hover, #submitButton:hover {
+#startButton:hover, #submitButton:hover, #retryButton:hover, #clearButton:hover {
     border: 2px solid #384092 ;
     background: linear-gradient(240deg, #e66465, #384092);
     color: white;
@@ -146,4 +146,8 @@ input {
 
 .highScore:first-child {
     margin-top: 0;
+}
+
+.highScore:last-child {
+    border-bottom: 0 solid lightgrey;
 }

@@ -303,12 +303,50 @@ function showHighScores() {
                 }
             }
 
-        // clear scores?
-        // try again button
+        var clearButton = document.createElement("button");
 
+            // create retryQuiz button
+            quizDiv.appendChild(clearButton);
+            // give new button id
+            clearButton.setAttribute("id", "clearButton");
 
+            // finalize button
+            clearButton.setAttribute("type", "submit");
+            clearButton.textContent = "Clear Scoreboard";
+
+            // clear button event listener
+            clearButton.addEventListener("click", function () {
+            // clears local storage
+            localStorage.clear();
+            // refresh page
+            location.reload();
+            });        
+
+        var createButton = document.createElement("button");
+
+        // create retryQuiz button
+        quizDiv.appendChild(createButton);
+            // give new button id
+            createButton.setAttribute("id", "retryButton");
+            // assign new button to var
+            var retryButton = document.querySelector("#retryButton");
+
+            // finalize button
+            retryButton.setAttribute("type", "submit");
+            retryButton.textContent = "Retry Quiz";
+
+            // retry event listener
+            retryButton.addEventListener("click", function () {
+                // refresh page
+                location.reload();
+            });
+
+    
 
 }
+
+
+      
 
     
 }
