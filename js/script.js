@@ -1,17 +1,3 @@
-/* 
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score 
-*/
-
 // sample questions from mock
 var questions = [
     {
@@ -45,17 +31,11 @@ var questions = [
 var createUl = document.createElement("ul");
 var createH2 = document.createElement("h2");
 
-
-
-
 // html variables
 var quizDiv = document.querySelector("#quiz");
 var timerDiv = document.querySelector("#timer");
 var messageDiv = document.querySelector("#message");
 var startButton = document.querySelector("#startButton");
-// var titleH1 = document.querySelector("h1");
-
-
 
 // js variables
 let index = 0;
@@ -88,7 +68,6 @@ startButton.addEventListener("click", function () {
     displayQuiz(index);
 });
 
-
 // function to display questions on page 
 function displayQuiz(index){
 
@@ -102,10 +81,8 @@ function displayQuiz(index){
         // append question in h2
         quizDiv.appendChild(createH2);
         createH2.textContent = gameQuestions;
-
-        // log question 
-        // console.log(gameQuestions);
     }
+
     // creates list for question options
     gameOptions.forEach(function(optionItem) {
         // declare create listItem variable
@@ -119,8 +96,6 @@ function displayQuiz(index){
         // user selects option - add event listener
         listItem.addEventListener("click", (checkContinue));
 
-        // log answers
-        // console.log(optionItem);
     })
 }
 
@@ -150,10 +125,10 @@ function checkContinue(event) {
         }        
     }
     
-    // go to next question
-    index++;
-    // end quiz conditions
-    if (index >= questions.length) { // if no more questions, record score and game over
+        // go to next question
+        index++;
+        // end quiz conditions
+        if (index >= questions.length) { // if no more questions, record score and game over
         
         // call function scoreSummary
         clear();
